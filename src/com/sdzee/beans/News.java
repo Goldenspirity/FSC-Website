@@ -1,17 +1,46 @@
 package com.sdzee.beans;
 
-import java.sql.Timestamp;
-
 public class News {
 	
 	private int id;
 	private String title;
 	private String content;
 	private String image;
-	private Timestamp date;
+	private String date;
 	
 	public int getId() {
 		return this.id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getTitle() {
+		return this.title;
+	}
+	public void setTitle(String t) {
+		this.title = t;
+	}
+	
+	public String getContent() {
+		return this.content;
+	}
+	public void setContent(String text) {
+		this.content = text;
+	}
+	
+	public String getImage() {
+		return this.image;
+	}
+	public void setImage(String url) {
+		this.image = url;
+	}
+	
+	public String getDate() {
+		return this.date;
+	}
+	public void setDate (String d) {
+		this.date = d;
 	}
 
 }
