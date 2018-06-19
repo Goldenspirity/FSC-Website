@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -12,8 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sdzee.beans.News;
 import com.sdzee.beans.Tournament;
 import com.sdzee.dao.DAOFactory;
+import com.sdzee.daoImplementations.NewsDAOImplementation;
 import com.sdzee.daoImplementations.TournamentDAOImplementation;
 
 @SuppressWarnings("serial")
@@ -22,7 +23,7 @@ public class Testss extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Test createTournament
 		DAOFactory df = DAOFactory.getInstance();
-		TournamentDAOImplementation td1 = new TournamentDAOImplementation(df);
+		/*TournamentDAOImplementation td1 = new TournamentDAOImplementation(df);
 		Tournament t = new Tournament();
 		String[] s = {"Team 1","Team 2","Team 3","Team 4","Team 5","Team 6","Team 7","Team 8"};
 		t.setNumberOfTeams(8);
@@ -50,7 +51,7 @@ public class Testss extends HttpServlet {
 				t.getSpots().put(i,  null);
 			}
 		}
-		td1.createTournament(t);
+		td1.createTournament(t);*/
 		//td1.createTournament(t);
 
 		
@@ -58,6 +59,26 @@ public class Testss extends HttpServlet {
 		// Tournament t3 = td1.getTournament(1);
 
 		// td1.updateTournament(t3);
+		
+		NewsDAOImplementation nd = new NewsDAOImplementation(df);
+		
+		News n = new News();
+		String content = "update";
+		Date date = new Date();
+		String date2 = "";
+		String OLD_FORMAT = "yy/MM/dd";
+		SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT);
+		date2 = sdf.format(date);
+		String title = "title3";
+		String image = "url";
+		n.setId(1);
+		n.setContent(content);
+		n.setDate(date2);
+		n.setTitle(title);
+		n.setImage(image);
+		
+		// nd.createNews(n);
+		nd.updateNews(n);
 		
 
 		
@@ -70,17 +91,14 @@ public class Testss extends HttpServlet {
 
 		// String dts = formatter.print(dt); 
 		// out.println(dts);
-		//DAOFactory df = DAOFactory.getInstance();
+		// DAOFactory df = DAOFactory.getInstance();
 		// TournamentDAOImplementation td = new TournamentDAOImplementation(df);
 		// out.println(t.getScores().get(1)[0] + "<br />");
-		showTournament(1,out, td1);
+		// showTournament(1,out, td1);
 		
 		// Test inProgress
-		boolean inProgress1 = td1.inProgress(1);
-		boolean inProgress2 = td1.inProgress(0);
-		out.println(inProgress1);
-		out.println("<br />");
-		out.println(inProgress2);
+		boolean b = nd.exists(6);
+		out.println(b);
 		
 		// Test delete
 		/*TournamentDAOImplementation td2 = new TournamentDAOImplementation(df);

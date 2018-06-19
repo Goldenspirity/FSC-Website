@@ -7,6 +7,7 @@ public class News {
 	private String content;
 	private String image;
 	private String date;
+	private String lastEdit;
 	
 	public int getId() {
 		return this.id;
@@ -41,6 +42,13 @@ public class News {
 	}
 	public void setDate (String d) {
 		this.date = d;
+	}
+	
+	public String getLastEdit() {
+		return this.lastEdit;
+	}
+	public void setLastEdit (String d) {
+		this.lastEdit = d;
 	}
 
 }

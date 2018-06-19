@@ -19,6 +19,7 @@ public class NewsDAOImplementation implements NewsDAOInterface {
 	
 	private static final String SQL_LAST_ID = "SELECT id FROM news";
 	private static final String SQL_CREATE_NEWS = "INSERT INTO news (title, image, content, date) VALUES (?,?,?,?)";
+	private static final String SQL_UPDATE_NEWS = "UPDATE news SET title = ?, content = ?, image = ?, lastEdit = NOW() WHERE id = ?";
 	
 	private static final String ID_FIELD = "id";
 	
@@ -63,7 +64,28 @@ public class NewsDAOImplementation implements NewsDAOInterface {
 
 	@Override
 	public void updateNews(News news) throws DAOException {
-		// TODO Auto-generated method stub
+        Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        
+        int id = news.getId();
+        String title = news.getTitle();
+        String content = news.getContent();
+        String image = news.getImage();
+        
+        try {
+        	connexion = daoFactory.getConnexion();
+            preparedStatement = initialisationPreparedRequest( connexion, SQL_UPDATE_NEWS, false, title, content, image, id);
+            int statut = preparedStatement.executeUpdate();
+            
+            if ( statut == 0 ) {
+                throw new DAOException( "Échec de la mise à jour de la news, aucune ligne mise à jour dans la table." );
+            }
+            
+        } catch (SQLException e) {
+        	throw new DAOException("La table News n'a pas pu être mise à jour.", e);
+		} finally {
+			silentClose(preparedStatement, connexion);
+		}
 		
 	}
 
@@ -100,7 +122,7 @@ public class NewsDAOImplementation implements NewsDAOInterface {
 			}
 			
 		} catch (SQLException e) {
-			throw new DAOException("Le tournoi n'existe pas.", e);
+			throw new DAOException("La news n'existe pas.", e);
 		} finally {
 			silentClose(resultSet, preparedStatement, connexion);
 		}
@@ -138,4 +160,6 @@ public class NewsDAOImplementation implements NewsDAOInterface {
 		}
 		return id;
 	}
+	
+
 }

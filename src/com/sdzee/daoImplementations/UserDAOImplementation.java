@@ -127,7 +127,7 @@ public class UserDAOImplementation implements UserDAOInterface {
             int statut = preparedStatement.executeUpdate();
             
             if ( statut == 0 ) {
-                throw new DAOException( "Échec de la création de l'utilisateur, aucune ligne mise à jour dans la table." );
+                throw new DAOException( "Échec de la mise à jour du mot de passe, aucune ligne mise à jour dans la table." );
             }
             
         } catch (SQLException e) {
