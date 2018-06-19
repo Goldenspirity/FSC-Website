@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+/* Header */
+
+#header {
+	height: 100px;
+	box-sizing: border-box;
+}
+
+header {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	background: url(../../images/fsc_header_background2.png) no-repeat center center;
+	background-size: 100%;
+	position: fixed;
+	margin: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100px;
+	z-index: 2;
+}
+
+#logos {
+	width: 15%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-left: 40px;
+}
+
+#teamLogo img {
+	width: 130px;
+	height: auto;
+	padding-top: 50px;
+}
+
+#socialLogos {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding-left: 40px;
+}
+
+#socialLogos img {
+	width: 30px;
+	height: auto;
+	padding: 3px;
+}
+
+header nav {
+	width: 50%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+
+}
+
+header ul {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	list-style-type: none;
+
+}
+
+header ul li {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+header a {
+	text-decoration: none;
+	color : white;
+	font-size: 0.85em;
+}
+
+header #loggedIn {
+	color: white;
+	width: 10%;
+	font-size: 12px;
+}
+
+header .disconnect, header .connect {
+	text-decoration: underline;
+}

@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: "Raleway";
+	src: url(../../fonts/Raleway/Raleway-Regular.ttf);
+}
+
+@font-face {
+	font-family: "Raleway_italic";
+	src: url(../../fonts/Raleway/Raleway-Italic.ttf);
+}
+
+@font-face {
+	font-family: "Quicksand";
+	src: url(../../fonts/Quicksand/Quicksand-Regular.otf);
+}
+
+@font-face {
+	font-family: "Quicksand_light";
+	src: url(../../fonts/Quicksand/Quicksand-Light.otf);
+}
+
+@font-face { 
+    font-family: "Liberation";
+    src: url('../../fonts/Liberation/LiberationSerif-Regular-webfont.eot');
+    src: url('../../fonts/Liberation/LiberationSerif-Regular-webfont.woff') format('woff'),
+         url('../../fonts/Liberation/LiberationSerif-Regular-webfont.ttf') format('truetype');
+}
+
+@font-face { 
+    font-family: "Liberation_bold";
+    src: url('../../fonts/Liberation/LiberationSerif-Bold-webfont.eot');
+    src: url('../../fonts/Liberation/LiberationSerif-Bold-webfont.woff') format('woff'),
+         url('../../fonts/Liberation/LiberationSerif-Bold-webfont.ttf') format('truetype');
+}
+
+@font-face { 
+    font-family: "Liberation_italic";
+    src: url('../../fonts/Liberation/LiberationSerif-Italic-webfont.eot');
+    src: url('../../fonts/Liberation/LiberationSerif-Italic-webfont.woff') format('woff'),
+         url('../../fonts/Liberation/LiberationSerif-Italic-webfont.ttf') format('truetype');
+}

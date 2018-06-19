@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+html, body {
+	height:100%;
+}
+
+#blocPage {
+	justify-content: center;
+}
+
+.center {
+	height: 100%;
+	align-self: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+fieldset {
+	border: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.input {
+	display: flex;
+	flex-direction: row;
+	flew-wrap: nowrap;
+	justify-content: space-between;
+	width: 300px;
+	padding: 3px;
+}
+
+input {
+	width: 150px;
+	height: 13px;
+}
+
+#submit {
+	height: 20px;
+	width: 40%;
+	margin-left: 30%;
+}
+

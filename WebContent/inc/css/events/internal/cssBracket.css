@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+html, body {
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+#blocPage {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+/*#newTournamentForm {
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	margin-top: 20px;
+	padding: 20px;
+}*/
+
+#globalDiv {
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	/* border: 5px solid red; */
+	margin-top: 20px;
+	padding: 20px;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#titleDateSubmit {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 5px solid red;
+	width: 100%;
+	height: 50px;
+}
+
+#title, #date, #startTournament {
+	text-align: center;
+}
+
+#m0 {
+	height: 66%;
+}
+
+#m1, #m2 {
+	height: 100%;
+}
+
+#m2 {
+	flex-direction: row-reverse;
+}
+
+.mainDiv {
+	/* border: 2px solid black; */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#wrappingDiv {
+	height: 30%;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+}
+
+#se0, #se1, #se2, #se4, #se5, #se6, #se7, #se8, #se9, #se10 {
+	justify-content: space-around;
+}
+
+
+
+.secundaryDiv {
+	/* border: 2px solid red; */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.tsDiv {
+	display: flex;
+	flex-direction: row;
+}
+
+#ts0, #ts1, #ts2, #ts3, #ts4, #ts5, #ts22, #ts23 {
+	flex-direction: row-reverse;
+}
+
+.team {
+	padding: 5px;
+	width: 120px;
+	/* border: 1px solid green; */
+	text-align: center;
+}
+
+.team input {
+	width: 120px;
+}
+
+.score {
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 25px;
+	/* border: 1px solid green; */
+	background-color: #9f9f9f;
+}
+
+.score input {
+	width: 25px;
+}
+
+.result {
+	text-align: center;
+	font-style: italic;
+}
+
+#resultWindowOverlay {
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: none;
+	z-index: 10px;
+}
+
+#resultWindow {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	top: 40%;
+	left: 40%;
+	background: rgba(255,0,0,1);
+	color: white;
+}
+
+#erase {
+	color: red;
+	text-decoration: underline;
+}

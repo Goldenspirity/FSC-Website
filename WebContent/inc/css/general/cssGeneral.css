@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+html, body {
+	margin: 0px;
+	width: 100%;
+	background: url(../../images/fsc_background.png) no-repeat center center;
+	background-attachment: fixed;
+	color: white;
+	font-family: "Liberation";
+}
+
+#blocPage {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+/* Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #000276;
+    border-radius: 10px;
+}

@@ -1,0 +1,4 @@
+url = jdbc:mysql://node26565-fscdev.hidora.com/bdd_fsc
+driver = com.mysql.jdbc.Driver
+username = root
+password = EAXvef59141
