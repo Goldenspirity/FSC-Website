@@ -20,8 +20,15 @@ public class NewsDAOImplementation implements NewsDAOInterface {
 	private static final String SQL_LAST_ID = "SELECT id FROM news";
 	private static final String SQL_CREATE_NEWS = "INSERT INTO news (title, image, content, date) VALUES (?,?,?,?)";
 	private static final String SQL_UPDATE_NEWS = "UPDATE news SET title = ?, content = ?, image = ?, lastEdit = NOW() WHERE id = ?";
+	private static final String SQL_GET_NEWS = "SELECT id, title, image, content, DATE_FORMAT(date,'%d/%m/%Y') AS date, DATE_FORMAT(lastEdit,'%d/%m/%Y') AS lastEdit FROM news WHERE id = ?";
+	private static final String SQL_DELETE_NEWS = "DELETE FROM news WHERE id = ?";
 	
 	private static final String ID_FIELD = "id";
+	private static final String TITLE_FIELD = "title";
+	private static final String CONTENT_FIELD = "content";
+	private static final String IMAGE_FIELD = "image";
+	private static final String DATE_FIELD = "date";
+	private static final String LASTEDIT_FIELD = "lastEdit";
 	
     public NewsDAOImplementation( DAOFactory daoFactory ) {
         this.daoFactory = daoFactory;
@@ -91,13 +98,46 @@ public class NewsDAOImplementation implements NewsDAOInterface {
 
 	@Override
 	public News getNews(int id) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+        Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        News news = null;
+
+        try {
+            connexion = daoFactory.getConnexion();
+            preparedStatement = initialisationPreparedRequest( connexion, SQL_GET_NEWS, false, id );
+            resultSet = preparedStatement.executeQuery();
+            
+            if ( resultSet.next() ) {
+                news = map( resultSet );
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            silentClose( resultSet, preparedStatement, connexion );
+        }
+
+        return news;
 	}
 
 	@Override
 	public void deleteNews(int id) throws DAOException {
-		// TODO Auto-generated method stub
+        Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        
+        try {
+			connexion = daoFactory.getConnexion();
+			preparedStatement = initialisationPreparedRequest( connexion, SQL_DELETE_NEWS, false, id);
+			int statut = preparedStatement.executeUpdate();
+			
+			if (statut == 0) {
+				throw new DAOException( "Problème lors de la suppression de la news." );
+			}
+		} catch (SQLException e) {
+			throw new DAOException( "Problème lors de la suppression de la news." );
+		} finally {
+			silentClose(preparedStatement, connexion);
+		}
 		
 	}
 
@@ -129,6 +169,17 @@ public class NewsDAOImplementation implements NewsDAOInterface {
 		
 		return exists;
 	}
+	
+    private static News map( ResultSet resultSet ) throws SQLException {
+    	News news = new News();
+    	news.setId( resultSet.getInt( ID_FIELD ) );
+    	news.setTitle( resultSet.getString( TITLE_FIELD ) );
+    	news.setContent( resultSet.getString( CONTENT_FIELD ) );
+    	news.setImage( resultSet.getString( IMAGE_FIELD ) );
+    	news.setDate( resultSet.getString( DATE_FIELD ) );
+    	news.setLastEdit(resultSet.getString( LASTEDIT_FIELD ));
+        return news;
+    }
 
 	@Override
 	public int lastId() throws DAOException {

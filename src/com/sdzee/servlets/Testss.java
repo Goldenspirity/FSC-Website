@@ -78,7 +78,9 @@ public class Testss extends HttpServlet {
 		n.setImage(image);
 		
 		// nd.createNews(n);
-		nd.updateNews(n);
+		// nd.updateNews(n);
+		n = nd.getNews(1);
+		//nd.deleteNews(4);
 		
 
 		
@@ -98,7 +100,17 @@ public class Testss extends HttpServlet {
 		
 		// Test inProgress
 		boolean b = nd.exists(6);
-		out.println(b);
+		out.println(n.getId());
+		out.println("<br />");
+		out.println(n.getTitle());
+		out.println("<br />");
+		out.println(n.getContent());
+		out.println("<br />");
+		out.println(n.getImage());
+		out.println("<br />");
+		out.println(n.getDate());
+		out.println("<br />");
+		out.println(n.getLastEdit());
 		
 		// Test delete
 		/*TournamentDAOImplementation td2 = new TournamentDAOImplementation(df);
