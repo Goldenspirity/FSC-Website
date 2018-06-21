@@ -11,6 +11,8 @@ public interface NewsDAOInterface {
 	
 	News getNews(int id) throws DAOException;
 	
+	News[] getThreeLastNews() throws DAOException;
+	
 	void deleteNews(int id) throws DAOException;
 	
 	boolean exists(int id) throws DAOException;

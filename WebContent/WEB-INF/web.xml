@@ -73,6 +73,11 @@
 	</servlet>
 
 	<servlet>
+		<servlet-name>News</servlet-name>
+		<servlet-class>com.sdzee.servlets.NewsServlet</servlet-class>
+	</servlet>
+
+	<servlet>
 		<servlet-name>Account</servlet-name>
 		<servlet-class>com.sdzee.servlets.AccountServlet</servlet-class>
 	</servlet>
@@ -137,6 +142,11 @@
 	<servlet-mapping>
 		<servlet-name>RemoveTournament</servlet-name>
 		<url-pattern>/events/tournoisInternes/removeTournament</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>News</servlet-name>
+		<url-pattern>/news</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>

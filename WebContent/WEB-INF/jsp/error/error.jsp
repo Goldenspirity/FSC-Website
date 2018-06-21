@@ -128,7 +128,7 @@
 		if (i == 93) {
 			$(location).attr('href', '${pageContext.request.contextPath}/home')
 		}
-	}, 3500);
+	}, 2000);
 	
 	
 	</script>

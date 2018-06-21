@@ -18,9 +18,10 @@ public class NewsDAOImplementation implements NewsDAOInterface {
 	private DAOFactory daoFactory;
 	
 	private static final String SQL_LAST_ID = "SELECT id FROM news";
-	private static final String SQL_CREATE_NEWS = "INSERT INTO news (title, image, content, date) VALUES (?,?,?,?)";
-	private static final String SQL_UPDATE_NEWS = "UPDATE news SET title = ?, content = ?, image = ?, lastEdit = NOW() WHERE id = ?";
-	private static final String SQL_GET_NEWS = "SELECT id, title, image, content, DATE_FORMAT(date,'%d/%m/%Y') AS date, DATE_FORMAT(lastEdit,'%d/%m/%Y') AS lastEdit FROM news WHERE id = ?";
+	private static final String SQL_THREE_LAST_ID = "SELECT id FROM news ORDER BY id DESC LIMIT 3";
+	private static final String SQL_CREATE_NEWS = "INSERT INTO news (title, image, content, date, summary) VALUES (?,?,?,?,?)";
+	private static final String SQL_UPDATE_NEWS = "UPDATE news SET title = ?, content = ?, image = ?, lastEdit = NOW(), summary = ? WHERE id = ?";
+	private static final String SQL_GET_NEWS = "SELECT id, title, image, content, DATE_FORMAT(date,'%d/%m/%Y') AS date, DATE_FORMAT(lastEdit,'%d/%m/%Y') AS lastEdit, summary FROM news WHERE id = ?";
 	private static final String SQL_DELETE_NEWS = "DELETE FROM news WHERE id = ?";
 	
 	private static final String ID_FIELD = "id";
@@ -29,6 +30,7 @@ public class NewsDAOImplementation implements NewsDAOInterface {
 	private static final String IMAGE_FIELD = "image";
 	private static final String DATE_FIELD = "date";
 	private static final String LASTEDIT_FIELD = "lastEdit";
+	private static final String SUMMARY_FIELD = "summary";
 	
     public NewsDAOImplementation( DAOFactory daoFactory ) {
         this.daoFactory = daoFactory;
@@ -47,8 +49,9 @@ public class NewsDAOImplementation implements NewsDAOInterface {
         	String content = news.getContent();
         	String image = news.getImage();
         	String date = news.getDate();
+        	String summary = news.getSummary();
         	
-            preparedStatement = initialisationPreparedRequest(connexion, SQL_CREATE_NEWS, true, title, image, content, date);
+            preparedStatement = initialisationPreparedRequest(connexion, SQL_CREATE_NEWS, true, title, image, content, date, summary);
             int statut = preparedStatement.executeUpdate();
             
             if ( statut == 0 ) {
@@ -78,10 +81,11 @@ public class NewsDAOImplementation implements NewsDAOInterface {
         String title = news.getTitle();
         String content = news.getContent();
         String image = news.getImage();
+        String summary = news.getSummary();
         
         try {
         	connexion = daoFactory.getConnexion();
-            preparedStatement = initialisationPreparedRequest( connexion, SQL_UPDATE_NEWS, false, title, content, image, id);
+            preparedStatement = initialisationPreparedRequest( connexion, SQL_UPDATE_NEWS, false, title, content, image, summary, id);
             int statut = preparedStatement.executeUpdate();
             
             if ( statut == 0 ) {
@@ -118,6 +122,20 @@ public class NewsDAOImplementation implements NewsDAOInterface {
         }
 
         return news;
+	}
+	
+	@Override
+	public News[] getThreeLastNews() throws DAOException {
+		int[] ids = threeLastIds();
+		News[] newsList = new News[3];
+		for (int i = 0; i < 3; i++) {
+			if (ids[i] != -1) {
+				News n = getNews(ids[i]);
+				newsList[i] = n;
+			}
+		}
+		
+		return newsList;
 	}
 
 	@Override
@@ -178,6 +196,7 @@ public class NewsDAOImplementation implements NewsDAOInterface {
     	news.setImage( resultSet.getString( IMAGE_FIELD ) );
     	news.setDate( resultSet.getString( DATE_FIELD ) );
     	news.setLastEdit(resultSet.getString( LASTEDIT_FIELD ));
+    	news.setSummary(resultSet.getString(SUMMARY_FIELD));
         return news;
     }
 
@@ -212,5 +231,33 @@ public class NewsDAOImplementation implements NewsDAOInterface {
 		return id;
 	}
 	
-
+	private int[] threeLastIds() {
+        Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        
+		int[] ids = {-1,-1,-1};
+		
+		try {
+			connexion = daoFactory.getConnexion();
+			preparedStatement = initialisationPreparedRequest(connexion,SQL_THREE_LAST_ID, false);
+			resultSet = preparedStatement.executeQuery();
+			
+			int i = 0;
+			
+			while (resultSet.next()) {
+				int currentId = resultSet.getInt(ID_FIELD);
+				if (i < 3) {
+					ids[i] = currentId;
+				}
+				i++;
+			}
+			
+		} catch (SQLException e) {
+			throw new DAOException("Problème lors de la récupération du last ID", e);
+		} finally {
+			silentClose(resultSet, preparedStatement, connexion);
+		}
+		return ids;
+	}
 }

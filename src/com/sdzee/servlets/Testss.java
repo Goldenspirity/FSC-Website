@@ -63,24 +63,29 @@ public class Testss extends HttpServlet {
 		NewsDAOImplementation nd = new NewsDAOImplementation(df);
 		
 		News n = new News();
-		String content = "update";
+		String content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
+				+ "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+				+ "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+		String summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
+				+ "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+				+ "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		Date date = new Date();
 		String date2 = "";
 		String OLD_FORMAT = "yy/MM/dd";
 		SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT);
 		date2 = sdf.format(date);
-		String title = "title3";
-		String image = "url";
-		n.setId(1);
+		String title = "LA SAISON 9 EST ENCORE LOIN !";
+		String image = "https://zupimages.net/up/18/25/twtv.jpg";
 		n.setContent(content);
 		n.setDate(date2);
 		n.setTitle(title);
 		n.setImage(image);
+		n.setSummary(summary);
 		
-		// nd.createNews(n);
+		nd.createNews(n);
 		// nd.updateNews(n);
-		n = nd.getNews(1);
-		//nd.deleteNews(4);
+		// n = nd.getNews(1);
+
 		
 
 		
@@ -105,6 +110,8 @@ public class Testss extends HttpServlet {
 		out.println(n.getTitle());
 		out.println("<br />");
 		out.println(n.getContent());
+		out.println("<br />");
+		out.println(n.getSummary());
 		out.println("<br />");
 		out.println(n.getImage());
 		out.println("<br />");

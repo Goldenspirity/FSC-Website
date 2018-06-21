@@ -25,8 +25,29 @@
 		<div id="mainDiv">
 		 
 			<div id="news" class="owl-carousel">
-				<div class="item" id="news0"> 
-					<img class="newsBackground" src="${pageContext.request.contextPath}/inc/images/test_news_4.jpg" />	
+			
+				<c:forEach items="${newsList}" var="news">
+					<div class="item" id="news0"> 
+						<img class="newsBackground" src="${news.image}" />	
+						
+						<div class="overlay">
+							<img class="sliderButton prevBtn" src="${pageContext.request.contextPath}/inc/images/newsPrevBtn.png" />
+							
+							<div class="overlayContent"> 
+								<div class="title"><h1>${news.title}</h1></div>
+								<div class="subtitle">
+									<p>${news.summary}</p>
+								</div>
+								<div class="readMore"><a href="${pageContext.request.contextPath}/news?id=${news.id}" class="button"><span>Lire la suite</span></a></div>
+							</div>
+							
+							<img class="sliderButton nextBtn" src="${pageContext.request.contextPath}/inc/images/newsNextBtn.png" />
+						</div>
+					</div>
+				</c:forEach>
+
+				<!-- <div class="item" id="news0"> 
+					<img class="newsBackground" src="https://zupimages.net/up/18/25/twtv.jpg" />	
 					
 					<div class="overlay">
 						<img class="sliderButton prevBtn" src="${pageContext.request.contextPath}/inc/images/newsPrevBtn.png" />
@@ -38,7 +59,7 @@
 								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
 								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 							</div>
-							<div class="readMore"><a href="" class="button"><span>Lire la suite</span></a></div>
+							<div class="readMore"><a href="${pageContext.request.contextPath}/news?id=${news.id}" class="button"><span>Lire la suite</span></a></div>
 						</div>
 						
 						<img class="sliderButton nextBtn" src="${pageContext.request.contextPath}/inc/images/newsNextBtn.png" />
@@ -46,7 +67,7 @@
 				</div>
 				
 				<div class="item" id="news1"> 
-					<img class="newsBackground" src="${pageContext.request.contextPath}/inc/images/test_news_5.jpg" /> 
+					<img class="newsBackground" src="https://zupimages.net/up/18/25/10sa.jpg" /> 
 					
 					<div class="overlay">
 						<img class="sliderButton prevBtn" src="${pageContext.request.contextPath}/inc/images/newsPrevBtn.png" />
@@ -66,7 +87,7 @@
 				</div>
 				
 				<div class="item" id="news2"> 
-					<img class="newsBackground" src="${pageContext.request.contextPath}/inc/images/test_news_6.jpg" /> 
+					<img class="newsBackground" src="https://zupimages.net/up/18/25/4oeo.jpg" /> 
 					
 					<div class="overlay">
 						<img class="sliderButton prevBtn" src="${pageContext.request.contextPath}/inc/images/newsPrevBtn.png" />
@@ -81,8 +102,8 @@
 						
 						<img class="sliderButton nextBtn" src="${pageContext.request.contextPath}/inc/images/newsNextBtn.png" />
 					</div>
-				</div>
-			</div>
+				</div> -->
+			</div> 
 			
 			<div id="bottom">
 				<div id="lastResults">

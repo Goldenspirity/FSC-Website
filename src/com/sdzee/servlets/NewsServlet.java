@@ -13,32 +13,36 @@ import com.sdzee.daoInterfaces.NewsDAOInterface;
 import com.sdzee.data.NewsManagement;
 
 @SuppressWarnings("serial")
-public class HomepageServlet extends HttpServlet {
+public class NewsServlet extends HttpServlet {
 	
 	private static final String CONF_DAO_FACTORY = "daofactory";
-	private final static String VIEW = "/WEB-INF/jsp/index.jsp";
-	private final static String NEWS_LIST_FIELD = "newsList";
+	private final static String VIEW = "/WEB-INF/jsp/news/fullNews.jsp";
+	private final static String ERROR_VIEW = "/error";
+	private final static String ID_FIELD = "id";
+	private final static String NEWS_FIELD = "news";
 	
 	NewsDAOInterface newsDaoInterface;
 	
     public void init() throws ServletException {
         this.newsDaoInterface = ( (DAOFactory) getServletContext().getAttribute( CONF_DAO_FACTORY ) ).getNewsDao();
     }
-
+	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			int id = Integer.parseInt(request.getParameter(ID_FIELD));
+			NewsManagement nm = new NewsManagement(newsDaoInterface);
+			News news = nm.getNews(id);
+			
+			request.setAttribute(NEWS_FIELD, news);
 
-		NewsManagement nm = new NewsManagement(newsDaoInterface);
-		News[] newsList = nm.getThreeLastNews();
-		
-		request.setAttribute(NEWS_LIST_FIELD, newsList);
-		
-		this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
+			this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
+		} catch (NullPointerException e) {
+			response.sendRedirect( request.getContextPath() + ERROR_VIEW);
+		} catch (NumberFormatException e) {
+			response.sendRedirect( request.getContextPath() + ERROR_VIEW );
+		}
+
 		
 	}
-	
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
-	}
-	
+
 }

@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.sdzee.daoImplementations.NewsDAOImplementation;
 import com.sdzee.daoImplementations.TournamentDAOImplementation;
 import com.sdzee.daoImplementations.UserDAOImplementation;
 
@@ -72,6 +73,10 @@ public class DAOFactory {
     
     public TournamentDAOImplementation getTournamentDao() {
         return new TournamentDAOImplementation( this );
+    }
+    
+    public NewsDAOImplementation getNewsDao() {
+    	return new NewsDAOImplementation (this);
     }
 
 }
