@@ -10,6 +10,10 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/general/cssGeneral.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/events/internal/cssBracket.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/header/cssHeader.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/footer/cssFooter.css" />
+	
+	<link rel="icon" type='image/png' href="${pageContext.request.contextPath}/inc/images/favicon.png" />
+	
 	<script src="${pageContext.request.contextPath}/inc/js/jquery.js"></script>
 	<script src="${pageContext.request.contextPath}/inc/js/newBracket.js"></script>
 	<script src="${pageContext.request.contextPath}/inc/js/bracketHuitEvents.js"></script>
@@ -39,6 +43,8 @@
 				</form>
 			</div>
 		</div>
+		
+		<div id="footer"> <c:import url="/WEB-INF/jsp/footer/footer.jsp"></c:import> </div> 
 	</div>
 </body>
 </html>

@@ -45,64 +45,6 @@
 						</div>
 					</div>
 				</c:forEach>
-
-				<!-- <div class="item" id="news0"> 
-					<img class="newsBackground" src="https://zupimages.net/up/18/25/twtv.jpg" />	
-					
-					<div class="overlay">
-						<img class="sliderButton prevBtn" src="${pageContext.request.contextPath}/inc/images/newsPrevBtn.png" />
-						
-						<div class="overlayContent"> 
-							<div class="title"><h1>LA SAISON 8 EST ENFIN ARRIVEE !</h1></div>
-							<div class="subtitle">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							</div>
-							<div class="readMore"><a href="${pageContext.request.contextPath}/news?id=${news.id}" class="button"><span>Lire la suite</span></a></div>
-						</div>
-						
-						<img class="sliderButton nextBtn" src="${pageContext.request.contextPath}/inc/images/newsNextBtn.png" />
-					</div>
-				</div>
-				
-				<div class="item" id="news1"> 
-					<img class="newsBackground" src="https://zupimages.net/up/18/25/10sa.jpg" /> 
-					
-					<div class="overlay">
-						<img class="sliderButton prevBtn" src="${pageContext.request.contextPath}/inc/images/newsPrevBtn.png" />
-						
-						<div class="overlayContent"> 
-							<div class="title"><h1>LA SAISON 7 EST ENFIN TERMINEE !</h1></div>
-							<div class="subtitle">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							</div>
-							<div class="readMore"><a href="" class="button"><span>Lire la suite</span></a></div>
-						</div>
-						
-						<img class="sliderButton nextBtn" src="${pageContext.request.contextPath}/inc/images/newsNextBtn.png" />
-					</div>
-				</div>
-				
-				<div class="item" id="news2"> 
-					<img class="newsBackground" src="https://zupimages.net/up/18/25/4oeo.jpg" /> 
-					
-					<div class="overlay">
-						<img class="sliderButton prevBtn" src="${pageContext.request.contextPath}/inc/images/newsPrevBtn.png" />
-						
-						<div class="overlayContent"> 
-							<div class="title"><h1>LA SAISON 9 EST ENCORE LOIN !</h1></div>
-							<div class="subtitle"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-							<div class="readMore"><a href="" class="button"><span>Lire la suite</span></a></div>
-						</div>
-						
-						<img class="sliderButton nextBtn" src="${pageContext.request.contextPath}/inc/images/newsNextBtn.png" />
-					</div>
-				</div> -->
 			</div> 
 			
 			<div id="bottom">
@@ -169,38 +111,5 @@
 	<script src="https://embed.twitch.tv/embed/v1.js"></script>
 	<script src="${pageContext.request.contextPath}/inc/js/index/jsIndex.js"></script>
 	
-	<script>
-		/*$(document).ready(function(){
-			$('.owl-carousel').owlCarousel({
-			    items:1,
-			    loop:true,
-			    nav:false,
-			    autoplay:true,
-				autoplayTimeout:5000,
-				mouseDrag:false
-			})
-			
-			$(".nextBtn").click(function() {
-				$('.owl-carousel').trigger('next.owl.carousel');
-				$('.owl-carousel').trigger('stop.owl.autoplay');
-				$('.owl-carousel').trigger('play.owl.autoplay', [5000]);
-			});
-			
-			$(".prevBtn").click(function() {
-				$('.owl-carousel').trigger('prev.owl.carousel');
-				$('.owl-carousel').trigger('stop.owl.autoplay');
-				$('.owl-carousel').trigger('play.owl.autoplay', [5000]);
-			});
-		});
-		
-		var a = 0.85*window.innerWidth;
-		var b = 0.75*window.innerHeight;
-		
-	    new Twitch.Embed("twitch-embed", {
-          width: a,
-          height: b,
-          channel: "frenchskylinecorporation"
-        });*/
-	</script>
 </body>
 </html>

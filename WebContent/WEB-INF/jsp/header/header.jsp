@@ -16,7 +16,7 @@
 	<nav>
 		<ul class="list">
 	    	<li><a href="${pageContext.request.contextPath}/home">ACCUEIL</a></li>
-	    	<li><a href="">ACTUALITES</a></li>
+	    	<li><a href="${pageContext.request.contextPath}/news">ACTUALITES</a></li>
 	    	<li><a href="">NOS EQUIPES</a></li>
 	    	<li><a href="">MEDIAS</a></li>
 	    	

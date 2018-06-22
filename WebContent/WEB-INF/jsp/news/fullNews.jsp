@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/general/cssGeneral.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/header/cssHeader.css"/>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/footer/cssFooter.css"/>
+	
+	<link rel="icon" type='image/png' href="${pageContext.request.contextPath}/inc/images/favicon.png" />
 </head>
 <body>
 	<div id="blocPage">

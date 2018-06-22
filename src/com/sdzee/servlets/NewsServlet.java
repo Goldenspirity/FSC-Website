@@ -17,6 +17,7 @@ public class NewsServlet extends HttpServlet {
 	
 	private static final String CONF_DAO_FACTORY = "daofactory";
 	private final static String VIEW = "/WEB-INF/jsp/news/fullNews.jsp";
+	private final static String NEWS_LIST_VIEW = "/WEB-INF/jsp/news/allNews.jsp";
 	private final static String ERROR_VIEW = "/error";
 	private final static String ID_FIELD = "id";
 	private final static String NEWS_FIELD = "news";
@@ -28,19 +29,21 @@ public class NewsServlet extends HttpServlet {
     }
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			int id = Integer.parseInt(request.getParameter(ID_FIELD));
-			NewsManagement nm = new NewsManagement(newsDaoInterface);
-			News news = nm.getNews(id);
+
+		NewsManagement nm = new NewsManagement(newsDaoInterface);
+		String isIdInDb = nm.isIdInDb(request);
+		if (isIdInDb != null && isIdInDb.equals("in")) {
+			News news = nm.getNews(Integer.parseInt(request.getParameter(ID_FIELD)));
 			
 			request.setAttribute(NEWS_FIELD, news);
 
 			this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
-		} catch (NullPointerException e) {
-			response.sendRedirect( request.getContextPath() + ERROR_VIEW);
-		} catch (NumberFormatException e) {
+		} else if (isIdInDb != null && isIdInDb.equals("out")) {
 			response.sendRedirect( request.getContextPath() + ERROR_VIEW );
+		} else {
+			this.getServletContext().getRequestDispatcher(NEWS_LIST_VIEW).forward(request, response);
 		}
+
 
 		
 	}
