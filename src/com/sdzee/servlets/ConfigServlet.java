@@ -39,7 +39,6 @@ public class ConfigServlet extends HttpServlet {
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		Configuration co = new Configuration(userDAOInterface);
 		co.update(request);
 		

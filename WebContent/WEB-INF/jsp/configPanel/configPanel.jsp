@@ -48,8 +48,14 @@
 			<h2>Ajouter une news</h2>
 			
 			<form method="post" action="${pageContext.request.contextPath}/config">
-				<input type="text" name="title" id="title" />
-				<textarea name="summary" id="summary"></textarea> <!-- Tester si le textarea marche bien dans le form -->
+				<label for="title">Titre</label><input type="text" name="title" id="title" />
+				<br/>
+				<label for="imageUrl">Url de l'image</label><input type="text" name="imageUrl" id="imageUrl" />
+				<br/>
+				<label for="summary">Résumé (~ 300 caractères)</label><textarea name="summary" id="summary"></textarea>
+				<br />
+				<label for="content">Contenu</label><textarea name="content" id="content"></textarea>
+				<br />
 				<input type="submit" value="Envoyer" />
 			</form>
 		
