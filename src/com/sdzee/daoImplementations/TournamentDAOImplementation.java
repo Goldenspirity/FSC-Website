@@ -20,7 +20,6 @@ public class TournamentDAOImplementation implements TournamentDAOInterface {
 	
 	private DAOFactory daoFactory;
 	
-	// private static final String DATE_FORMAT = "%d %m %y";
 	private static final String SQL_GET_TOURNAMENT_SPOTS = "SELECT id, title, DATE_FORMAT(dateTournament,'%d/%m/%Y') AS dateTournament, spot, team FROM teamsinternaltournaments WHERE id = ?";
 	private static final String SQL_GET_TOURNAMENT_SCORES = "SELECT id, matchNumber, score, topOrBottom FROM scoreinternaltournaments WHERE id = ?";
 	private static final String SQL_CREATE_TEAMS_TABLE = "INSERT INTO teamsinternaltournaments (id, title, dateTournament, spot, team) VALUES (?,?,?,?,?)";

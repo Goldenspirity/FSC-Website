@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.sdzee.beans.News;
 import com.sdzee.dao.DAOException;
@@ -139,6 +140,21 @@ public class NewsDAOImplementation implements NewsDAOInterface {
 	}
 
 	@Override
+	public ArrayList<News> getAllNews() throws DAOException {
+		ArrayList<News> newsList = new ArrayList<News>();
+		ArrayList<Integer> allIds = allId();
+		
+		for (int i : allIds) {
+			News t = getNews(i);
+			if (t != null) {
+				newsList.add(t);
+			}
+		}
+		
+		return newsList;
+	}
+	
+	@Override
 	public void deleteNews(int id) throws DAOException {
         Connection connexion = null;
         PreparedStatement preparedStatement = null;
@@ -255,6 +271,33 @@ public class NewsDAOImplementation implements NewsDAOInterface {
 			
 		} catch (SQLException e) {
 			throw new DAOException("Problème lors de la récupération du last ID", e);
+		} finally {
+			silentClose(resultSet, preparedStatement, connexion);
+		}
+		return ids;
+	}
+	
+	private ArrayList<Integer> allId() {
+        Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        
+		ArrayList<Integer> ids = new ArrayList<Integer>();
+		
+		try {
+			connexion = daoFactory.getConnexion();
+			preparedStatement = initialisationPreparedRequest(connexion,SQL_LAST_ID, false);
+			resultSet = preparedStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				int currentId = resultSet.getInt(ID_FIELD);
+				if(!ids.contains(currentId)) {
+					ids.add(currentId);
+				}
+			}
+			
+		} catch (SQLException e) {
+			throw new DAOException("Problème lors de la récupération des ID", e);
 		} finally {
 			silentClose(resultSet, preparedStatement, connexion);
 		}

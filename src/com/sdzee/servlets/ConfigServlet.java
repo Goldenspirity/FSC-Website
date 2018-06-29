@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sdzee.beans.User;
 import com.sdzee.dao.DAOFactory;
+import com.sdzee.daoInterfaces.NewsDAOInterface;
 import com.sdzee.daoInterfaces.UserDAOInterface;
 import com.sdzee.data.Configuration;
+import com.sdzee.data.NewsManagement;
 import com.sdzee.data.UserManagement;
 
 @SuppressWarnings("serial")
@@ -21,10 +23,12 @@ public class ConfigServlet extends HttpServlet {
 	private final static String RELATIVE_VIEW = "/config";
 	private static final String USERS_LIST = "usersList";
 	
-	private UserDAOInterface     userDAOInterface;
+	private UserDAOInterface userDAOInterface;
+	private NewsDAOInterface newsDAOInterface;
 	
     public void init() throws ServletException {
         this.userDAOInterface = ( (DAOFactory) getServletContext().getAttribute( CONF_DAO_FACTORY ) ).getUserDao();
+        this.newsDAOInterface = ( (DAOFactory) getServletContext().getAttribute( CONF_DAO_FACTORY ) ).getNewsDao();
     }
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,8 +43,15 @@ public class ConfigServlet extends HttpServlet {
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		Configuration co = new Configuration(userDAOInterface);
-		co.update(request);
+		String formCalled = co.whichForm(request);
+		if (formCalled.equals("updateRole")) {
+			co.update(request);
+		} else if (formCalled.equals("addNews")) {
+			NewsManagement nm = new NewsManagement(newsDAOInterface);
+			nm.addNews(request);
+		}
 		
 		response.sendRedirect( request.getContextPath() + RELATIVE_VIEW );
 		

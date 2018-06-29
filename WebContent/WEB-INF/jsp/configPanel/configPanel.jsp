@@ -33,7 +33,10 @@
 					<td>
 						<form method="post" action="config">
 							<select name="updateRole">
-								<option value="member_${user.name}">Membre</option>
+								<option value="guest_${user.name}">Invité</option>
+								<option value="player_${user.name}">Joueur</option>
+								<option value="captain_${user.name}">Capitaine</option>
+								<option value="organizer_${user.name}">Animateur</option>
 								<option value="admin_${user.name}">Admin</option>
 							</select>
 							<input type="submit" value="Valider" />
@@ -48,7 +51,7 @@
 			<h2>Ajouter une news</h2>
 			
 			<form method="post" action="${pageContext.request.contextPath}/config">
-				<label for="title">Titre</label><input type="text" name="title" id="title" />
+				<label for="title">Titre (~ 50 caractères)</label><input type="text" name="title" id="title" />
 				<br/>
 				<label for="imageUrl">Url de l'image</label><input type="text" name="imageUrl" id="imageUrl" />
 				<br/>

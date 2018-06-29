@@ -1,5 +1,7 @@
 package com.sdzee.daoInterfaces;
 
+import java.util.ArrayList;
+
 import com.sdzee.beans.News;
 import com.sdzee.dao.DAOException;
 
@@ -12,6 +14,8 @@ public interface NewsDAOInterface {
 	News getNews(int id) throws DAOException;
 	
 	News[] getThreeLastNews() throws DAOException;
+	
+	ArrayList<News> getAllNews() throws DAOException;
 	
 	void deleteNews(int id) throws DAOException;
 	

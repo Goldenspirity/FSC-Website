@@ -23,7 +23,9 @@
 		</div> 
 		
 		<div>
-			<p><a href="<c:url value='tournoisInternes/newTournament'/>">Nouveau tournoi à huit équipes.</a></p>
+			<c:if test="${sessionScope.user != null && (sessionScope.user.role == 'organizer' || sessionScope.user.role == 'admin' || sessionScope.user.role == 'superadmin')}">
+				<p><a href="<c:url value='tournoisInternes/newTournament'/>">Nouveau tournoi à huit équipes.</a></p>
+			</c:if>
 			<p>Tournois précédents :</p>
 			<table>
 			<c:forEach items="${tournamentsList}" var="tournament">

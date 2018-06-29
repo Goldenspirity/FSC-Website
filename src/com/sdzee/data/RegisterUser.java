@@ -1,6 +1,5 @@
 package com.sdzee.data;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,7 +15,7 @@ public class RegisterUser {
     private static final String PASSWORD_FIELD   = "password";
     private static final String PASSWORD_CHECK_FIELD   = "passwordCheck";
     private static final String NAME_FIELD    = "username";
-    private static final String ENCRYPTION_FIELD    = "encrpytion";
+    // private static final String ENCRYPTION_FIELD    = "encryption";
     private static final String ENCRYPTION_ALGORITHM = "SHA-256";
     private String              result;
     private Map<String, String> errors      = new HashMap<String, String>();
@@ -83,22 +82,22 @@ public class RegisterUser {
 	private void passwordProcess( String password, String passwordCheck, User user ) {
 	    try {
 	        passwordCheck( password, passwordCheck );
+		    // byte[] salt = null;
+		    byte[] passwordEncryption = null;
+		    /*if (password != null) {
+				try {
+					salt = SecurePassword.getSalt();
+					passwordEncryption = SecurePassword.getSecurePassword(password, ENCRYPTION_ALGORITHM, salt);
+				} catch (NoSuchAlgorithmException e) {
+					setError(ENCRYPTION_FIELD,"Une erreur imprévue est survenue, veuillez réessayer dans quelques minutes. Si l'erreur persiste, contactez un administrateur.");
+				}
+			}*/
+		    passwordEncryption = SecurePassword.getSecurePassword(password, ENCRYPTION_ALGORITHM);
+		    user.setPassword( passwordEncryption );
 	    } catch ( FormProcessException e ) {
 	        setError( PASSWORD_FIELD, e.getMessage() );
 	        setError( PASSWORD_CHECK_FIELD, null );
 	    }
-	    
-	    byte[] salt = null;
-	    byte[] passwordEncryption = null;
-	    if (password != null) {
-			try {
-				salt = SecurePassword.getSalt();
-				passwordEncryption = SecurePassword.getSecurePassword(password, ENCRYPTION_ALGORITHM/*, salt*/);
-			} catch (NoSuchAlgorithmException e) {
-				setError(ENCRYPTION_FIELD,"Une erreur imprévue est survenue, veuillez réessayer dans quelques minutes. Si l'erreur persiste, contactez un administrateur.");
-			}
-		}
-	    user.setPassword( passwordEncryption );
 	}
 	
 	private void emailCheck( String email ) throws FormProcessException {

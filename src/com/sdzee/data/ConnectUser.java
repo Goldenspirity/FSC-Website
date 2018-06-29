@@ -1,7 +1,6 @@
 package com.sdzee.data;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,13 +60,13 @@ public class ConnectUser {
 	    if (user != null) {
 	    	byte[] passwordHash = user.getPassword();	    	
 	    	byte[] passwordEncryption = null;
-	    	try {
+	    	/*try {
 				byte[] salt = SecurePassword.getSalt();
-				passwordEncryption = SecurePassword.getSecurePassword(password, ENCRYPTION_ALGORITHM/*, salt*/);
+				passwordEncryption = SecurePassword.getSecurePassword(password, ENCRYPTION_ALGORITHM, salt);
 			} catch (NoSuchAlgorithmException e) {
 				e.printStackTrace();
-			}
-	    	
+			}*/
+	    	passwordEncryption = SecurePassword.getSecurePassword(password, ENCRYPTION_ALGORITHM);
 	    	if (!MessageDigest.isEqual(passwordEncryption, passwordHash)) {
 	    		setError(PASSWORD_FIELD, "Mauvais mot de passe.");
 	    	}	

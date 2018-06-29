@@ -17,8 +17,8 @@
 		<ul class="list">
 	    	<li><a href="${pageContext.request.contextPath}/home">ACCUEIL</a></li>
 	    	<li><a href="${pageContext.request.contextPath}/news">ACTUALITES</a></li>
-	    	<li><a href="">NOS EQUIPES</a></li>
-	    	<li><a href="">MEDIAS</a></li>
+	    	<li><a href="${pageContext.request.contextPath}/home">NOS EQUIPES</a></li>
+	    	<li><a href="${pageContext.request.contextPath}/home">MEDIAS</a></li>
 	    	
 	    	<c:if test="${sessionScope.user == null}">
 	    		<li><a href="inscription">S'ENREGISTRER</a></li>
@@ -26,9 +26,6 @@
 	    	
 	    	<c:if test="${sessionScope.user != null}">
 	    		<li><a href="${pageContext.request.contextPath}/events/tournoisInternes">EVENEMENTS</a></li>
-	    		<c:if test="${sessionScope.user.role == 'admin'}">
-	    			<li><a href="${pageContext.request.contextPath}/config">CONFIGURATION</a></li>
-	    		</c:if>
 	    	</c:if>
 	    
 	    </ul>

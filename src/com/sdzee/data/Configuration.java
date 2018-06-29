@@ -8,6 +8,10 @@ import com.sdzee.daoInterfaces.UserDAOInterface;
 public class Configuration {
 
 	private static final String ROLE_FIELD = "updateRole";
+	private static final String TITLE_FIELD = "title";
+	private static final String IMAGE_FIELD = "imageUrl";
+	private static final String SUMMARY_FIELD = "summary";
+	private static final String CONTENT_FIELD = "content";
 	
     private UserDAOInterface      userDao;
 
@@ -25,6 +29,23 @@ public class Configuration {
     		User user = userDao.findByName(name);
     		updateRole(user, role);
     	}
+    }
+    
+    public String whichForm(HttpServletRequest request) {
+    	String formCalled = "";
+    	String role = getFieldValue(request, ROLE_FIELD);
+    	String title = getFieldValue(request, TITLE_FIELD);
+    	String image = getFieldValue(request, IMAGE_FIELD);
+    	String summary = getFieldValue(request, SUMMARY_FIELD);
+    	String content = getFieldValue(request, CONTENT_FIELD);
+    	
+    	if (role != null && title == null && image == null && summary == null && content == null) {
+    		formCalled = "updateRole";
+    	} else if (role == null && title != null && image != null && summary != null && content != null) {
+    		formCalled = "addNews";
+    	}
+    	
+    	return formCalled;
     }
     
     private void updateRole(User user, String role) {

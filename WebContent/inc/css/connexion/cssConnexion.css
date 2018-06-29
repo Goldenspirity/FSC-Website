@@ -5,23 +5,28 @@ html, body {
 }
 
 #blocPage {
-	justify-content: center;
-}
-
-.center {
-	height: 100%;
-	align-self: center;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-fieldset {
-	border: 0;
+#connexion {
+	align-self: center;
+	background-color: rgba(21, 0, 0, 0.95);
+	border-radius: 7px;
+	padding: 10px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
+
+form {
+	padding: 10px;
+	padding-top: 15px;	
+	flex-direction: column;
+	justify-content: center;
+}
+
 
 .input {
 	display: flex;
@@ -30,16 +35,52 @@ fieldset {
 	justify-content: space-between;
 	width: 300px;
 	padding: 3px;
+	font-family: "Liberation_italic";
 }
 
 input {
 	width: 150px;
 	height: 13px;
+	background: none;
+	color: white;
+	box-shadow: 0 0 4px #9ecaed;
+	border: none;
+	border-radius: 3px;
+}
+
+input:focus {
+	background-color: rgba(71, 0, 0, 0.25);
+	box-shadow: 0 0 7px #9ecaed;
+}
+
+.submitInput {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
 #submit {
 	height: 20px;
-	width: 40%;
-	margin-left: 30%;
+	width: auto;
+	font-family: "Liberation";
+	font-size: 1.0em;
+	background: none;
+	border: none;
+	box-shadow: 0 0 0px #9ecaed;
+	color: white;
+	-webkit-transition: color 0.5s;
+    -moz-transition:    color 0.5s;
+    -ms-transition:     color 0.5s;
+    -o-transition:      color 0.5s;
+    transition:         color 0.5s;
 }
 
+#submit:hover {
+	color: #a5a5a5;
+}
+
+.error {
+	font-size: 0.9em;
+	color: red;
+	text-align: center;
+}

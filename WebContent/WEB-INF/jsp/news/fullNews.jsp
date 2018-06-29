@@ -20,10 +20,16 @@
 		
 			<h1>${news.title}</h1>
 			<span class="date" id="date">${news.date}</span>
-			<span class="date" id="lastEdit">${news.lastEdit}</span>
+	
 			<img src="${news.image}" />
 			<p>${news.content}</p>
-		
+			
+			<c:if test="${news.lastEdit != null}">
+				<p>Modifé le ${news.lastEdit}.</p>
+			</c:if>
+			
+			<a href="config/editNews?id=${news.id}"><span id="edit">Edit</span></a>
+			
 		</div>
 		
 		<div id="footer"> <c:import url="/WEB-INF/jsp/footer/footer.jsp"></c:import> </div>

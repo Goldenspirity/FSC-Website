@@ -16,6 +16,41 @@
 	    <listener-class>com.sdzee.config.InitialisationDaoFactory</listener-class>
 	</listener>
 
+
+	<!-- ************************ Filters ************************ -->
+
+	<filter>
+		<filter-name>ConfigFilter</filter-name>
+		<filter-class>com.sdzee.filters.ConfigFilter</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>EventsFilter</filter-name>
+		<filter-class>com.sdzee.filters.EventsFilter</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>NewTournamentFilter</filter-name>
+		<filter-class>com.sdzee.filters.NewTournamentFilter</filter-class>
+	</filter>
+
+	<!-- ************************ Filters Mapping ************************ -->
+
+	<filter-mapping>
+		<filter-name>ConfigFilter</filter-name>
+		<url-pattern>/config/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>EventsFilter</filter-name>
+		<url-pattern>/events/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>NewTournamentFilter</filter-name>
+		<url-pattern>/events/tournoisInternes/newTournament</url-pattern>
+	</filter-mapping>
+
 	<!-- ************************ Servlets ************************ -->
 	<servlet>
 		<servlet-name>Test</servlet-name>
@@ -78,6 +113,11 @@
 	</servlet>
 
 	<servlet>
+		<servlet-name>RemoveNews</servlet-name>
+		<servlet-class>com.sdzee.servlets.RemoveNewsServlet</servlet-class>
+	</servlet>
+
+	<servlet>
 		<servlet-name>Account</servlet-name>
 		<servlet-class>com.sdzee.servlets.AccountServlet</servlet-class>
 	</servlet>
@@ -85,6 +125,11 @@
 	<servlet>
 		<servlet-name>ConfigurationPanel</servlet-name>
 		<servlet-class>com.sdzee.servlets.ConfigServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>EditNews</servlet-name>
+		<servlet-class>com.sdzee.servlets.EditNewsServlet</servlet-class>
 	</servlet>
 
 	<!-- ************************ Servlets mapping ************************ -->
@@ -150,6 +195,11 @@
 	</servlet-mapping>
 
 	<servlet-mapping>
+		<servlet-name>RemoveNews</servlet-name>
+		<url-pattern>/news/removeNews</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
 		<servlet-name>Account</servlet-name>
 		<url-pattern>/account</url-pattern>
 	</servlet-mapping>
@@ -157,5 +207,10 @@
 	<servlet-mapping>
 		<servlet-name>ConfigurationPanel</servlet-name>
 		<url-pattern>/config</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>EditNews</servlet-name>
+		<url-pattern>/config/editNews</url-pattern>
 	</servlet-mapping>
 </web-app>

@@ -3,6 +3,10 @@
 <footer>
 	<div></div>
 	
-	<div id="copyright">Copyright© 2018 - French Sky Corporation - Tous droits réservés</div>
-
+	<div id="copyright">
+	<c:if test="${sessionScope.user != null && (sessionScope.user.role == 'admin' || sessionScope.user.role == 'superadmin')}">
+		<a href="${pageContext.request.contextPath}/config">Panneau de configuration</a> <br/>
+	</c:if>
+		${sessionScope.user.role} Copyright© 2018 - French Sky Corporation - Tous droits réservés
+	</div>
 </footer>

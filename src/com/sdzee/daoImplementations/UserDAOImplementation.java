@@ -28,7 +28,7 @@ public class UserDAOImplementation implements UserDAOInterface {
 	private static final String SQL_SELECT_ALL_USERS = "SELECT id, email, name, password, registerDate, role FROM users";
     private static final String SQL_SELECT_BY_EMAIL = "SELECT id, email, name, password, registerDate, role FROM users WHERE email = ?";
     private static final String SQL_SELECT_BY_NAME = "SELECT id, email, name, password, registerDate, role FROM users WHERE name = ?";
-    private static final String SQL_INSERT = "INSERT INTO users (email, password, name, registerDate, role) VALUES (?, ?, ?, NOW(), 'member')";
+    private static final String SQL_INSERT = "INSERT INTO users (email, password, name, registerDate, role) VALUES (?, ?, ?, NOW(), 'guest')";
     private static final String SQL_UPDATE_PASSWORD = "UPDATE users SET password = ? WHERE name = ?";
     private static final String SQL_UPDATE_EMAIL = "UPDATE users SET email = ? WHERE name = ?";
     private static final String SQL_UPDATE_ROLE = "UPDATE users SET role = ? WHERE name = ?";

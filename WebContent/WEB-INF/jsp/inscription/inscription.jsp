@@ -17,9 +17,9 @@
 	<div id="blocPage">
 		<div id="header"> <c:import url="/WEB-INF/jsp/header/header.jsp"></c:import> </div> 
 		
-		<div id="form" class="center">
-			<form method="post" action="<c:url value='/inscription' />">
-				<fieldset>
+		<div id="inscription">
+			<div id="form">
+				<form method="post" action="<c:url value='/inscription' />">
 					<div class="input">
 						<label for="username">Nom d'utilisateur </label><input type="text" name="username" id="username" />
 					</div>
@@ -36,22 +36,25 @@
 						<span class="error">${form.errors['password']}</span> 
 					
 					<div class="input">
-						<label for="passwordCheck">Confirmation du mot de passe </label><input type="password" name="passwordCheck" id="passwordCheck" />
+						<label for="passwordCheck">Confirmation du <br/>mot de passe </label><input type="password" name="passwordCheck" id="passwordCheck" />
 					</div>
 						<span class="error">${form.errors['passwordCheck']}</span> 
 					
-					<div class="input">
+					<div class="input submitInput">
 						<input type="submit" value="Inscription" id="submit" />
 					</div>
-				</fieldset>
-			</form>
+				</form>
+			</div>
+			<c:if test="${form.errors != null}">
+				<c:if test="${form.errors['encryption'] != null}"><p class="error">${form.errors['encryption']}</p></c:if> 
+				<p class="${empty form.errors ? 'succes' : 'error'}">${form.result}</p>
+			</c:if>
+			
+			<div id="alreadyRegistered">
+				<p>Déjà enregistré ? <a href="connexion">Connectez-vous !</a></p>
+			</div>
 		</div>
-		<p class="error">${form.errors['encryption']}</p> 
-		<p class="${empty form.errors ? 'succes' : 'error'}">${form.result}</p>
 		
-		<div class="center">
-			<p>Déjà enregistré ? <a href="connexion">Connectez-vous !</a></p>
-		</div>
 		<div id="footer"> <c:import url="/WEB-INF/jsp/footer/footer.jsp"></c:import> </div> 
 	</div>
 </body>

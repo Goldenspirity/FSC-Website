@@ -51,6 +51,10 @@ header {
 	padding: 3px;
 }
 
+#socialLogos img:hover {
+	filter: brightness(0.7);
+}
+
 header nav {
 	width: 50%;
 	display: flex;
@@ -78,6 +82,15 @@ header a {
 	text-decoration: none;
 	color : white;
 	font-size: 0.85em;
+	-webkit-transition: color 0.4s;
+    -moz-transition:    color 0.4s;
+    -ms-transition:     color 0.4s;
+    -o-transition:      color 0.4s;
+    transition:         color 0.4s;
+}
+
+header a:hover {
+	color: #a5a5a5;
 }
 
 header #loggedIn {
@@ -87,5 +100,10 @@ header #loggedIn {
 }
 
 header .disconnect, header .connect {
-	text-decoration: underline;
+	font-family: "Liberation_italic";
+	font-size: 0.9em;
+}
+
+header .disconnect, header .connect:hover {
+	color: white;
 }

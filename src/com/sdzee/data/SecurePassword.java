@@ -4,8 +4,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
-import com.sdzee.beans.User;
-
 public class SecurePassword {
 
     public static byte[] getSalt() throws NoSuchAlgorithmException {

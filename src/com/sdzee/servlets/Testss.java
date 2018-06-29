@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -82,7 +84,7 @@ public class Testss extends HttpServlet {
 		n.setImage(image);
 		n.setSummary(summary);
 		
-		nd.createNews(n);
+		// nd.createNews(n);
 		// nd.updateNews(n);
 		// n = nd.getNews(1);
 
@@ -104,20 +106,20 @@ public class Testss extends HttpServlet {
 		// showTournament(1,out, td1);
 		
 		// Test inProgress
-		boolean b = nd.exists(6);
-		out.println(n.getId());
-		out.println("<br />");
-		out.println(n.getTitle());
-		out.println("<br />");
-		out.println(n.getContent());
-		out.println("<br />");
-		out.println(n.getSummary());
-		out.println("<br />");
-		out.println(n.getImage());
-		out.println("<br />");
-		out.println(n.getDate());
-		out.println("<br />");
-		out.println(n.getLastEdit());
+		
+		image = "https://zupimages.net/up/18/25/10sa.jpg";
+		
+		Pattern pattern = Pattern.compile("^http");
+		Matcher search = pattern.matcher(image);
+		boolean verif = search.matches();
+
+		
+    	if (verif) {
+    		out.println("true");
+    	} else {
+    		out.println("false");
+    	}
+
 		
 		// Test delete
 		/*TournamentDAOImplementation td2 = new TournamentDAOImplementation(df);

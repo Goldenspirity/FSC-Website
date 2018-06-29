@@ -1,6 +1,7 @@
 package com.sdzee.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +22,7 @@ public class NewsServlet extends HttpServlet {
 	private final static String ERROR_VIEW = "/error";
 	private final static String ID_FIELD = "id";
 	private final static String NEWS_FIELD = "news";
+	private final static String NEWS_LIST_FIELD = "newsList";
 	
 	NewsDAOInterface newsDaoInterface;
 	
@@ -41,6 +43,8 @@ public class NewsServlet extends HttpServlet {
 		} else if (isIdInDb != null && isIdInDb.equals("out")) {
 			response.sendRedirect( request.getContextPath() + ERROR_VIEW );
 		} else {
+			ArrayList<News> newsList = nm.getAllNews();
+			request.setAttribute(NEWS_LIST_FIELD, newsList);
 			this.getServletContext().getRequestDispatcher(NEWS_LIST_VIEW).forward(request, response);
 		}
 
