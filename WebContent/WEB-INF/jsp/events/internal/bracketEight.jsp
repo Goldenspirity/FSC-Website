@@ -45,8 +45,8 @@
 	</div>
 	
 	<script src="${pageContext.request.contextPath}/inc/js/jquery.js"></script>
-	<script src="${pageContext.request.contextPath}/inc/js/bracketHuitShape.js"></script>
-	<script src="${pageContext.request.contextPath}/inc/js/bracketHuitEvents.js"></script>
+	<script src="${pageContext.request.contextPath}/inc/js/events/bracketHuitShape.js"></script>
+	<script src="${pageContext.request.contextPath}/inc/js/events/bracketHuitEvents.js"></script>
 	<script>
 		jQuery(document).ready(function(){
 			$("#title").html("${tournament.title}");

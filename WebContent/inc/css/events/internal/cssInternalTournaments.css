@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+html, body {
+   height: 100%;
+}
+
+#content {
+	overflow: auto;
+	align-self: center;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#content a {
+	text-decoration: none;
+		color: white;
+}
+
+#content #newTournament {
+	background-color: rgba(21, 0, 0, 0.95);
+	width: 75%;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 1.5em;
+	font-family: "Liberation_italic";
+}
+
+#content #newTournament:hover {
+	background-color: rgba(50, 50, 50, 0.95);
+}
+
+#content #tournamentList {
+	background-color: rgba(21, 0, 0, 0.95);
+	width: 75%;
+	display: flex; 
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	border-radius: 10px;
+} 
+
+#content #tournamentList h1 {
+	border: 1px solid white;
+	padding: 15px;
+}
+
+#content #tournamentList table {
+	width: 100%;
+	padding-top: 5px;
+}
+
+#content #tournamentList table tr {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	border-radius: 5px;
+}
+
+#content #tournamentList table tr .cellLink, #content #tournamentList table tr th {
+	flex: 3;
+	text-align: center;
+}
+
+#content #tournamentList table tr .cellRemove {
+	text-align: center;
+	flex: 1;
+}
+
+#content #tournamentList table tr .cellLink {
+	background-color: rgba(50, 50, 50, 0.25);
+}
+
+#content #tournamentList table tr th {
+	font-family: "Liberation_italic";
+}
+
+#content #tournamentList table tr .cellRemove {
+	margin-left: 10px;
+	font-family: "Raleway_italic";
+	font-size: 0.8em;
+}
+
+#content #tournamentList table tr .cellRemove a {
+	-webkit-transition: color 0.25s;
+    -moz-transition:    color 0.25s;
+    -ms-transition:     color 0.25s;
+    -o-transition:      color 0.25s;
+    transition:         color 0.25s;
+}
+
+#content #tournamentList table tr .cellLeft {
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+#content #tournamentList table tr .cellRight {
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
