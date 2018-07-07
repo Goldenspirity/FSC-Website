@@ -1,5 +1,5 @@
 var sizeBracket = 8, numberOfTeamDivs, numberOfScoreDivs, numberOfMainDiv, numberOfSecundaryDiv, numberOftsDiv, numberOfResults;
-var arrayOfTeamDivs = [], arrayOfScoreDivs = [], arrayOfMainDivs = [], arrayOfSecundaryDivs = [], arrayOftsDivs = [], arrayOfResults = [];
+var arrayOfTeamDivs = [], arrayOfScoreDivs = [], arrayOfMainDivs = [], arrayOfSecundaryDivs = [], arrayOftsDivs = [], arrayOfResults = [], arrayOfMatchDivs = [];
 
 if (sizeBracket == 8) {
 	numberOfTeamDivs = 32;
@@ -37,17 +37,23 @@ for (var i = 0; i < numberOfMainDiv; i++) {
 for (var i = 0; i < numberOfSecundaryDiv; i++) {
 	var newSecundaryDiv = $(document.createElement('div'));
 	newSecundaryDiv.addClass('secundaryDiv');
-	newSecundaryDiv.attr("id",'se'+i);
-	// newSecundaryDiv.html("<p>Secundary div n°" + i + "</p>");
+	newSecundaryDiv.attr("id",'se'+i);;
 	arrayOfSecundaryDivs.push(newSecundaryDiv);
 }
 
+// Create all match divs
+for (var i = 0; u < numberOfResults; i++) {
+	var newMatchDiv = $(document.createElement('div'));
+	newMatchDiv.addClass('matchDiv');
+	newMatchDiv.attr("id",'match'+i);
+	arrayOfMatchDivs.push(newMatchDiv);
+}
+
 // Create all ts divs
-for (var i = 0; i <numberOftsDiv; i++) {
+for (var i = 0; i < numberOftsDiv; i++) {
 	var newtsDiv = $(document.createElement('div'));
 	newtsDiv.addClass('tsDiv');
 	newtsDiv.attr("id",'ts'+i);
-	// newtsDiv.html("<p>TS div n°" + i + "</p>");
 	arrayOftsDivs.push(newtsDiv);
 }
 
@@ -103,6 +109,9 @@ jQuery(document).ready(function(){
 			$("#m2").append(arrayOfSecundaryDivs[i]);
 		}
 	}
+	
+	// Add the match divs
+	
 
 	// Add the ts divs
 	for (var i = 0; i < numberOftsDiv; i++) {

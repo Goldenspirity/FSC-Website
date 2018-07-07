@@ -2,7 +2,8 @@
 
 html, body {
 	margin: 0px;
-	height: 100%;
+	height: auto;
+	min-height: 100%;
 	width: 100%;
 }
 
@@ -11,28 +12,21 @@ html, body {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	position: relative;
 }
-
-/*#newTournamentForm {
-	-webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-	width: 100%;
-	height: 100%;
-	margin-top: 20px;
-	padding: 20px;
-}*/
 
 #globalDiv {
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-	/* border: 5px solid red; */
-	margin-top: 20px;
+    align-self: center;
+	background-color: rgba(21, 0, 0, 0.95);
+	border-radius: 10px;
+	margin-top: 50px; margin-bottom: 20px;
 	padding: 20px;
 	height: 100%;
-	width: 100%;
+	width: 90%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -44,7 +38,6 @@ html, body {
 	justify-content: center;
 	align-items: center;
 	border: 5px solid red;
-	width: 100%;
 	height: 50px;
 }
 
@@ -52,8 +45,25 @@ html, body {
 	text-align: center;
 }
 
+#titleAndDate {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#title {
+	padding: 15px;
+	border: 1px solid white;
+}
+
+#date {
+	font-family: "Liberation_italic";
+}
+
 #m0 {
 	height: 66%;
+	
 }
 
 #m1, #m2 {
@@ -65,10 +75,13 @@ html, body {
 }
 
 .mainDiv {
-	/* border: 2px solid black; */
+	background-color: rgba(50, 50, 50, 0.5);
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 5px;
 }
 
 #wrappingDiv {
@@ -82,18 +95,58 @@ html, body {
 	justify-content: space-around;
 }
 
+#se0, #se6, #se8, #se10 {
+	height: 100px;
+	align-self: center;
+	padding-top: 50px;
+}
 
+#t1, #t31 {
+	position: relative;
+	right: 7px;	
+	top: 7px;
+}
+
+#t23, #t27 {
+	position: relative;
+	left: 7px;	
+	top: 7px;
+}
 
 .secundaryDiv {
-	/* border: 2px solid red; */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 
+.matchDiv {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	height: 150px;
+	background-color: rgba(80, 80, 80, 0.5);
+	border-radius: 7px;
+	margin: 10px;
+	padding: 8px;
+}
+
+#ma1, #ma2, #ma7, #ma8 {
+	height: 250px;
+}
+
+#ma0, #ma9 {
+	height: 440px;
+}
+
+#ma10, #ma11 {
+	height: 200px;
+}
+
 .tsDiv {
 	display: flex;
 	flex-direction: row;
+	margin-top: 10px; margin-bottom: 10px;
 }
 
 #ts0, #ts1, #ts2, #ts3, #ts4, #ts5, #ts22, #ts23 {
@@ -103,8 +156,12 @@ html, body {
 .team {
 	padding: 5px;
 	width: 120px;
-	/* border: 1px solid green; */
+	background-color: rgb(15, 15, 15);
+	border-radius: 4px;
+	box-shadow: 0px 0px 3px white;
+	margin: 5px;
 	text-align: center;
+	height: 23px;
 }
 
 .team input {
@@ -114,18 +171,20 @@ html, body {
 .score {
 	margin-left: 5px;
 	margin-right: 5px;
+	height: 28px;
 	width: 25px;
-	/* border: 1px solid green; */
-	background-color: #9f9f9f;
-}
-
-.score input {
-	width: 25px;
+	background-color: rgb(15, 15, 15);
+	border-radius: 4px;
+	align-self: center;
+	text-align: center;
+	font-size: 1.25em;
+	font-family: "Liberation_italic";
 }
 
 .result {
 	text-align: center;
 	font-style: italic;
+	cursor: pointer;
 }
 
 #resultWindowOverlay {
@@ -139,15 +198,83 @@ html, body {
 
 #resultWindow {
 	position: absolute;
-	width: 200px;
-	height: 200px;
+	width: 300px;
+	height: 300px;
 	top: 40%;
 	left: 40%;
-	background: rgba(255,0,0,1);
+	background: rgba(50,50,50,0.95);
+	border-radius: 10px;
+}
+
+#resultWindow form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#resultWindow form h5 {
+	font-size: 1.5em;
+	margin: 20px;
+}
+
+#resultWindow form p {
+	display: flex;
+	flex-direction: column;
+	justidy-content: center;
+	align-items: center;
+}
+
+#resultWindow form #team0, #resultWindow form #team1 {
+	font-size: 1.2em;
+}
+
+#resultWindow form #score0, #resultWindow form #score1 {
+	background-color: rgba(21,0,0,1);
+	border: none;
+	box-shadow: 0px 0px 3px white;
+	border-radius: 5px;
+	margin: 10px;
+	width: 50px;
 	color: white;
+	text-align: center;
+	font-size: 1.1em;
+}
+
+#resultWindow form #submitResult {
+	background: none;
+	margin-left: 10px;
+	font-family: "Raleway_italic";
+	font-size: 0.8em;
+	border: none;
+	color: white;
+	-webkit-transition: color 0.2s;
+    -moz-transition:    color 0.2s;
+    -ms-transition:     color 0.2s;
+    -o-transition:      color 0.2s;
+    transition:         color 0.2s;
+}
+
+#resultWindow form #submitResult:hover {
+	color: #a5a5a5;
 }
 
 #erase {
 	color: red;
 	text-decoration: underline;
+}
+
+#backLink {
+	background-color: rgba(21, 0, 0, 0.95);
+	width: 50px;
+	margin-top: 15px;
+	margin-left: 10px;
+	padding: 5px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#backLink a {
+	text-decoration: none;
+	color: white;
 }

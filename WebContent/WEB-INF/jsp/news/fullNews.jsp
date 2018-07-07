@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/general/cssGeneral.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/header/cssHeader.css"/>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/footer/cssFooter.css"/>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/news/cssFullNews.css"/>
 	
 	<link rel="icon" type='image/png' href="${pageContext.request.contextPath}/inc/images/favicon.png" />
 </head>
@@ -19,16 +20,24 @@
 		<div id="news">
 		
 			<h1>${news.title}</h1>
-			<span class="date" id="date">${news.date}</span>
-	
+		
 			<img src="${news.image}" />
-			<p>${news.content}</p>
+			
+			<span class="date" id="date">Publié le ${news.date}</span>
+			<p id="newsContent"><ts:nl2br>${news.content}</ts:nl2br></p>
 			
 			<c:if test="${news.lastEdit != null}">
-				<p>Modifé le ${news.lastEdit}.</p>
+				<p id="lastEdit">Modifé le ${news.lastEdit}.</p>
 			</c:if>
+
+			<div id="signature">
+				<p>La French Sky Corporation</p>
+				<img src="${pageContext.request.contextPath}/inc/images/fsc_logo.png" title="French Skyline Corporation"/>
+			</div>
 			
-			<a href="config/editNews?id=${news.id}"><span id="edit">Edit</span></a>
+			<c:if test="${sessionScope.user != null && (sessionScope.user.role == 'admin' || sessionScope.user.role == 'superadmin')}">
+				<span id="edit"><a href="config/editNews?id=${news.id}">Edit</a></span>
+			</c:if>
 			
 		</div>
 		

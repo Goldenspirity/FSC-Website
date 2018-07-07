@@ -32,7 +32,7 @@ header {
 }
 
 #teamLogo img {
-	width: 130px;
+	width: 110px;
 	height: auto;
 	padding-top: 50px;
 }
@@ -53,6 +53,11 @@ header {
 
 #socialLogos img:hover {
 	filter: brightness(0.7);
+}
+
+#socialLogos #twitchLogo, #socialLogos #discordLogo {
+	width: 25px;
+	height: auto;
 }
 
 header nav {

@@ -33,8 +33,13 @@ public class ConfigFilter implements Filter {
 
         HttpSession session = request.getSession();
         
-        boolean adminUser = ((User) session.getAttribute(ATT_USER)).getRole().equals(ADMIN_ROLE);
-        boolean superAdminUser = ((User) session.getAttribute(ATT_USER)).getRole().equals(SUPER_ADMIN_ROLE);
+    	boolean adminUser = false;
+    	boolean superAdminUser = false;
+        
+        if ((User) session.getAttribute(ATT_USER) != null) {
+        	adminUser = ((User) session.getAttribute(ATT_USER)).getRole().equals(ADMIN_ROLE);
+        	superAdminUser = ((User) session.getAttribute(ATT_USER)).getRole().equals(SUPER_ADMIN_ROLE);
+        }
         
         if (session.getAttribute(ATT_USER) == null || (!adminUser && !superAdminUser)) {
             response.sendRedirect( request.getContextPath() + HOME );

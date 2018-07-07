@@ -20,6 +20,19 @@
 	<!-- ************************ Filters ************************ -->
 
 	<filter>
+	    <filter-name>Set Character Encoding</filter-name>
+	    <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+	    <init-param>
+	        <param-name>encoding</param-name>
+	        <param-value>UTF-8</param-value>
+	    </init-param>
+	    <init-param>
+	        <param-name>ignore</param-name>
+	        <param-value>false</param-value>
+	    </init-param>
+	</filter>
+
+	<filter>
 		<filter-name>ConfigFilter</filter-name>
 		<filter-class>com.sdzee.filters.ConfigFilter</filter-class>
 	</filter>
@@ -37,6 +50,11 @@
 	<!-- ************************ Filters Mapping ************************ -->
 
 	<filter-mapping>
+	    <filter-name>Set Character Encoding</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
 		<filter-name>ConfigFilter</filter-name>
 		<url-pattern>/config/*</url-pattern>
 	</filter-mapping>
@@ -49,6 +67,7 @@
 	<filter-mapping>
 		<filter-name>NewTournamentFilter</filter-name>
 		<url-pattern>/events/tournoisInternes/newTournament</url-pattern>
+		<url-pattern>/events/tournoisInternes/removeTournament</url-pattern>
 	</filter-mapping>
 
 	<!-- ************************ Servlets ************************ -->
@@ -132,6 +151,11 @@
 		<servlet-class>com.sdzee.servlets.EditNewsServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>Shop</servlet-name>
+		<servlet-class>com.sdzee.servlets.ShopServlet</servlet-class>
+	</servlet>
+
 	<!-- ************************ Servlets mapping ************************ -->
 
 	<servlet-mapping>
@@ -212,5 +236,10 @@
 	<servlet-mapping>
 		<servlet-name>EditNews</servlet-name>
 		<url-pattern>/config/editNews</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Shop</servlet-name>
+		<url-pattern>/shop</url-pattern>
 	</servlet-mapping>
 </web-app>

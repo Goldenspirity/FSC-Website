@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+#newsList {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	background-color: rgba(242, 242, 242, 0.95);
+	width: 80%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	border: 3px solid #b49101;
+	border-radius: 7px;
+}
+
+.news {
+	width: 95%;
+	position: relative;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.news h2 {
+	color: black;
+	font-size: 1em;
+	margin: 0;
+}
+
+.news h3 {
+	color: black;
+	font-family: "Liberation_italic";
+	font-size: 0.8em;
+	margin: 0;
+}
+
+.news .lastEdit {
+	color: black;
+	font-family: "Liberation_italic";
+	font-size: 0.8em;
+	margin: 0;
+}
+
+.break {
+	width: 80%;
+	border-top: 2px solid #b49101;
+}
+
+.news .presentation {
+	height: 400px;
+	position: relative;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.news .presentation img {
+	width: 100%;
+	height: 400px;
+	border-radius: 5px;
+	filter: brightness(0.5);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.news .presentation .content {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	height: 400px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.news .presentation .content .title {
+	font-family: "Raleway_italic";
+	font-size: 1.8em;
+	color: #dddddd;
+}
+
+.news .presentation .content .subtitle {
+	width: 75%;
+	text-align: center;
+	font-family: "Quicksand";
+	font-size: 1em;
+	position: relative;
+	bottom: 5%;
+	color: #dddddd;
+}
+
+.readMore {
+	background: url(../../images/read_more.png) no-repeat center center;
+	background-size: 100%;
+	border-radius: 10px;
+	text-align: center;
+	width: 200px;
+	height: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+.readMore a {
+	font-family: "Quicksand_light";
+	text-decoration: none;
+	position: relative;
+	right: 20%;
+	color: white;
+}

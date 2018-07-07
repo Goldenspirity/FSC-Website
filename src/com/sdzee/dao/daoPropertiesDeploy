@@ -1,4 +1,4 @@
-url = jdbc:mysql://node26565-fscdev.hidora.com/bdd_fsc
+url = jdbc:mysql://node27960-french-sky-corporation.hidora.com/bdd_fsc?autoReconnect=true&useSSL=false
 driver = com.mysql.jdbc.Driver
 username = root
-password = EAXvef59141
+password = GQYdak38257

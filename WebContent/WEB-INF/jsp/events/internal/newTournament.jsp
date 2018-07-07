@@ -24,25 +24,20 @@
 		<div id="header">
 			<c:import url="/WEB-INF/jsp/header/header.jsp"></c:import>
 		</div> 
-		<p><a href="<c:url value='/events/tournoisInternes'/>">Retour</a></p>
+		
+		<span id="backLink"><a href="${pageContext.request.contextPath}/events/tournoisInternes">Retour</a></span>
+		
 		<form id="globalDiv" method="post" action="<c:url value='newTournament'/>">
-			<div id=#titleDateSubmit>
+			<div> <!-- id="titleDateSubmit"  -->
 				<input type="text" name="title" id="title" value="" />
 				<input type="date" id="date" name="date" />
 				<input type="submit" id="startTournament" value="Commencer le tournoi"/>
 			</div>
-		</form>
-		
-		<div id="resultWindowOverlay">
-			<div id="resultWindow">
-				<form method="post" action="<c:url value='bracket?id=${tournament.id}'/>">
-					<h5>Entrez vos résultats !</h5>
-					<p><span id="team0"></span><input type='text' name="score0" id="score0"/></p>
-					<p><span id="team1"></span><input type='text' name="score1" id="score1"/></p>
-					<input type='submit' value='Enregistrer le résultat' id="submitResult"/>
-				</form>
+			
+			<div id="teams">
+				<input type="text" name="team0" id="team0" />
 			</div>
-		</div>
+		</form>
 		
 		<div id="footer"> <c:import url="/WEB-INF/jsp/footer/footer.jsp"></c:import> </div> 
 	</div>

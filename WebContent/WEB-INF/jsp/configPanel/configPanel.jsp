@@ -27,22 +27,24 @@
 			<h2>Membres</h2>
 			<table>
 			<c:forEach items="${usersList}" var="user">
-				<tr>
-					<td>${user.name}</td>
-					<td>${user.role}</td>
-					<td>
-						<form method="post" action="config">
-							<select name="updateRole">
-								<option value="guest_${user.name}">Invité</option>
-								<option value="player_${user.name}">Joueur</option>
-								<option value="captain_${user.name}">Capitaine</option>
-								<option value="organizer_${user.name}">Animateur</option>
-								<option value="admin_${user.name}">Admin</option>
-							</select>
-							<input type="submit" value="Valider" />
-						</form>
-					</td>
-				</tr>
+				<c:if test="${user.name != 'admin'}">
+					<tr>
+						<td>${user.name}</td>
+						<td>${user.role}</td>
+						<td>
+							<form method="post" action="config">
+								<select name="updateRole">
+									<option value="guest_${user.name}">Invité</option>
+									<option value="player_${user.name}">Joueur</option>
+									<option value="captain_${user.name}">Capitaine</option>
+									<option value="organizer_${user.name}">Animateur</option>
+									<option value="admin_${user.name}">Admin</option>
+								</select>
+								<input type="submit" value="Valider" />
+							</form>
+						</td>
+					</tr>
+				</c:if>
 			</c:forEach>
 			</table>
 		</div>

@@ -76,11 +76,14 @@ jQuery(document).ready(function(){
 	// Submit result
 	$("#submitResult").click(function(e) {
 		if ($.isNumeric($("#score0").val().trim()) && $.isNumeric($("#score1").val().trim()) && $("#score0").val().trim() != $("#score1").val().trim()) {
+			
+			/* Add an invisible input with the match number as value */
 			var newInputDiv = $(document.createElement('input'));
 			newInputDiv.attr("name","matchNumber");
 			newInputDiv.attr("value", resultOpened);
 			newInputDiv.hide();
 			$("#resultWindow form").append(newInputDiv);
+			
 		} else {
 			e.preventDefault();
 			alert("Vous devez rentrez des scores valides !");
@@ -103,6 +106,19 @@ jQuery(document).ready(function(){
 				alert("Il faut saisir une date !")
 			} 
 		}
+	});
+	
+	// Back button
+	$("#backLink").mouseenter(function() {
+		$("#backLink").css("background-color", "rgb(40, 40, 40)");
+	});
+	
+	$("#backLink").mouseleave(function() {
+		$("#backLink").css("background-color", "rgba(21, 0, 0, 0.95)");
+	});
+	
+	$("#backLink").click(function (){
+		$(location).attr('href', 'events/tournoisInternes')
 	});
 	
 });

@@ -53,28 +53,28 @@
 					<div id="resultWrapper">
 						<div id="2v2" class="result">
 							<h3>2v2</h3>
-							<h4>Fr_On3_TriP - Jonath025fr</h4>
-							<p>G4G 27/06/18, 17h00</p>
+							<h4>Golden - Veda</h4>
+							<p>G4G 03/07/18, 18h30</p>
 							
-							<h4>VinZ - Hasukah</h4>
-							<p>G4G 25/06/18, 20h30</p>
+							<h4>D4cX3 - Mrs Steack</h4>
+							<p>G4G 02/07/18, 20h30</p>
 							
-							<h4>Neimad - IronWolfStreet</h4>
-							<p>G4G 24/06/18, 17h30</p>
+							<h4>Ugueaux - SiM</h4>
+							<p>G4G 01/07/18, 17h30</p>
 						</div>
 						
 						<div class="verticalLine"></div>
 						
 						<div id="3v3" class="result">
 							<h3>3v3</h3>
-							<h4>Antho - MkTriPTv - FiFOU78</h4>
-							<p>G4G 25/06/18, 21h30</p>
+							<h4>FR - NerZ - Jonath</h4>
+							<p>G4G 03/07/18, 20h30</p>
 							
-							<h4>Golden - Veda - Goldye</h4>
-							<p>G4G xx/xx/xx : 2è place</p>
+							<h4>Nima - Suma - Kyora</h4>
+							<p>G4G 03/07/18, 20h30</p>
 							
-							<h4>Golden - Veda - Goldye</h4>
-							<p>G4G xx/xx/xx : 2è place</p>
+							<h4>Tacatak, Elly, Nayence</h4>
+							<p>G4G 02/07/18, 21h30</p>
 						</div>
 					</div>
 				</div> 				

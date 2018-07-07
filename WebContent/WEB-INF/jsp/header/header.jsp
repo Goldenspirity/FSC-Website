@@ -8,9 +8,9 @@
 		
 		<div id="socialLogos">
 			<a href="https://www.facebook.com/FrenchSkylineCorp/" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/facebook.png" title="Facebook"/></a>
-			<a href="https://twitter.com/frskylinecorp" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/twitter.png" title="Twitter"/></a>
-			<a href="https://www.twitch.tv/goldye" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/twitch.png" title="Twitch"/></a>
-			<a href="https://discordapp.com/" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/discord.png" title="Discord"/></a>
+			<a href="https://twitter.com/frskylinecorp" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/twitter.png" title="Twitter" id="twitterLogo"/></a>
+			<a href="https://www.twitch.tv/goldye" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/twitch.png" title="Twitch" id="twitchLogo"/></a>
+			<a href="https://discordapp.com/" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/discord.png" title="Discord" id="discordLogo"/></a>
 		</div>
 	</div>
 	<nav>
@@ -21,11 +21,13 @@
 	    	<li><a href="${pageContext.request.contextPath}/home">MEDIAS</a></li>
 	    	
 	    	<c:if test="${sessionScope.user == null}">
+	    		<li><a href="${pageContext.request.contextPath}/shop">BOUTIQUE</a></li>
 	    		<li><a href="inscription">S'ENREGISTRER</a></li>
 	    	</c:if>
 	    	
 	    	<c:if test="${sessionScope.user != null}">
 	    		<li><a href="${pageContext.request.contextPath}/events/tournoisInternes">EVENEMENTS</a></li>
+	    		<li><a href="${pageContext.request.contextPath}/shop">BOUTIQUE</a></li>
 	    	</c:if>
 	    
 	    </ul>

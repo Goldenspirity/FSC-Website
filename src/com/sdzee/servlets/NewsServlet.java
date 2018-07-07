@@ -38,7 +38,7 @@ public class NewsServlet extends HttpServlet {
 			News news = nm.getNews(Integer.parseInt(request.getParameter(ID_FIELD)));
 			
 			request.setAttribute(NEWS_FIELD, news);
-
+			
 			this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
 		} else if (isIdInDb != null && isIdInDb.equals("out")) {
 			response.sendRedirect( request.getContextPath() + ERROR_VIEW );

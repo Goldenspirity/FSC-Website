@@ -345,6 +345,7 @@ public class TournamentDAOImplementation implements TournamentDAOInterface {
 	private Tournament mapTeams(ResultSet resultSet, Tournament tournament) {
 		
 		String team = null;
+		System.out.println(tournament.getId());
 		
 		try {
 			team = resultSet.getString(TEAM_FIELD);

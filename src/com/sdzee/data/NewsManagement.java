@@ -61,6 +61,13 @@ public class NewsManagement {
 	
 	public News[] getThreeLastNews() {
 		News[] newsList = newsDao.getThreeLastNews();
+		if (newsList[2] == null && newsList[1] != null) {
+			News[] newsListTwo = {newsList[0], newsList[1]};
+			return newsListTwo;
+		} else if (newsList[2] == null && newsList[1] == null) {
+			News[] newsListOne = {newsList[0]};
+			return newsListOne;
+		}
 		return newsList;
 	}
 	
