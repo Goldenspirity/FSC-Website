@@ -29,9 +29,12 @@ public class TournamentManagement {
 		String title = request.getParameter(TITLE_FIELD);
 		String dateTournament = request.getParameter(DATE_FIELD);
 		BRACKET_SIZE = getBracketSize(request);
+		String[] teamInputs = new String[BRACKET_SIZE];
 		String[] teams = new String[BRACKET_SIZE];
+		int[] fillOrder = getFillOrder(BRACKET_SIZE);
 		for (int i = 0; i < BRACKET_SIZE; i++) {
-			teams[i] = request.getParameter(TEAM_FIELD + i);
+			teamInputs[i] = request.getParameter(TEAM_FIELD + i);
+			teams[fillOrder[i] - 1] = teamInputs[i];
 		}
 		
 		if (!title.isEmpty() && !dateTournament.isEmpty()) {
@@ -237,5 +240,18 @@ public class TournamentManagement {
 			bracketSize = 64;
 		}
 		return bracketSize;
+	}
+	
+	private int[] getFillOrder(int bracketSize) {
+		switch(bracketSize) {
+			case(8) :
+				int [] fillOrder8 = {1,8,5,4,6,3,7,2};
+				return fillOrder8;
+			case(16) :
+				int[] fillOrder16 = {1,16,8,9,5,12,4,13,6,11,3,14,7,10,2,15};
+			return fillOrder16;
+			default:
+				return null;
+		}
 	}
 }

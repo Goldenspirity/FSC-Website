@@ -27,5 +27,5 @@ var b = 0.75*window.innerHeight;
 new Twitch.Embed("twitch-embed", {
   width: a,
   height: b,
-  channel: "frenchskylinecorporation"
+  channel: "frenchskycorporation"
 });
