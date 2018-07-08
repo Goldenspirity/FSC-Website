@@ -29,6 +29,23 @@ $(document).ready(function() {
 		inputNumber = inputNumber + 1;
 	});
 	
+	// Start tournament
+	$("#startTournament").click(function(e){
+		if ($("#title").val().trim() == "") {
+			e.preventDefault();
+			if ($("#date").val().trim() == "") {
+				alert("Il faut saisir un titre et une date !")
+			} else {
+				alert("Il faut saisir un titre !");
+			}
+		} else {
+			if ($("#date").val().trim() == "") {
+				e.preventDefault();
+				alert("Il faut saisir une date !")
+			} 
+		}
+	});
+	
 	// Back button
 	$("#backLink").mouseenter(function() {
 		$("#backLink").css("background-color", "rgb(40, 40, 40)");
