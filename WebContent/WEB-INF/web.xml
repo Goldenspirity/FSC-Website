@@ -62,6 +62,7 @@
 	<filter-mapping>
 		<filter-name>EventsFilter</filter-name>
 		<url-pattern>/events/*</url-pattern>
+		<url-pattern>/account/*</url-pattern>
 	</filter-mapping>
 
 	<filter-mapping>

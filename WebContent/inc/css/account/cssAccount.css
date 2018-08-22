@@ -1,5 +1,54 @@
 @charset "UTF-8";
 
+html, body { 
+	height: 100%;
+}
+
 #accountManagement {
-	margin-top: 100px;
+	align-self: center;
+	margin: 20px;
+	background-color: rgba(21,0,0,0.95);
+	width: 80%;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.update {
+	background-color: rgba(50,50,50,0.5);
+	padding: 10px;
+	margin: 10px;
+	border-radius: 7px;
+}
+
+.update form {
+	display: flex; 
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.update .labelInput {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.update label {
+	margin-right: 5px;
+}
+
+.error {
+	font-size: 0.9em;
+	color: red;
+	text-align: center;
+}
+
+.succes {
+	font-size: 0.9em;
+	color: green;
+	text-align: center;
 }

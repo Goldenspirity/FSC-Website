@@ -31,7 +31,7 @@
 					</div>
 					
 					<div id="titleDate">
-						<input type="text" name="title" id="title" class="titleDateSubmit" value="" />
+						<input type="text" name="title" id="title" class="titleDateSubmit" placeholder="Titre" />
 						<input type="date" id="date" name="date" class="titleDateSubmit" />
 					</div>
 				</div>

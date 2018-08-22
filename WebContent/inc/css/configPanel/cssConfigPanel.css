@@ -1,5 +1,97 @@
 @charset "UTF-8";
 
-h1 {
-	padding-top: 40px;
+#content {
+	align-self: center;
+	margin: 20px;
+	background-color: rgba(21,0,0,0.95);
+	width: 80%;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.contentDiv {
+	background-color: rgba(50,50,50,0.5);
+	padding: 10px;
+	margin: 10px;
+	border-radius: 7px;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+table {
+	border-collapse:collapse;
+}
+
+.cell {
+	border: 1px solid white;
+	text-align: center;
+	padding: 5px;
+}
+
+.cell:first-letter {
+    text-transform: capitalize;
+}
+
+select {
+	background-color: rgba(21,0,0,1);
+	border: none;
+	box-shadow: 0px 0px 3px white;
+	border-radius: 2px;
+	color: white;
+	text-align: center;
+	font-size: 0.9em;
+	margin: 5px;
+}
+
+#userSubmit {
+	background: none;
+	border: none;
+	color: white;
+	text-align: center;
+	font-size: 0.9em;
+	font-family: "Liberation_italic";
+	-webkit-transition: color 0.2s;
+    -moz-transition:    color 0.2s;
+    -ms-transition:     color 0.2s;
+    -o-transition:      color 0.2s;
+    transition:         color 0.2s;
+} 
+
+#userSubmit:hover {
+	color: #a5a5a5;
+}
+
+#newsManagement form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+} 
+
+#newsManagement label {
+	font-size: 1.2em;
+	font-family: "Liberation_italic";
+	margin: 10px;
+}
+
+#newsManagement input {
+	width: 1000px;
+	font-size: 1.1em;
+}
+
+#newsManagement #newsContent {
+	width: 1000px;
+	height: 700px;
+	font-size: 1.1em;
+}
+
+#newsManagement #summary {
+	width: 1000px;
+	height: 300px;
+	font-size: 1.1em;
 }

@@ -7,10 +7,10 @@
 		</div>
 		
 		<div id="socialLogos">
-			<a href="https://www.facebook.com/FrenchSkylineCorp/" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/facebook.png" title="Facebook"/></a>
+			<a href="https://www.facebook.com/frskycorp/" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/facebook.png" title="Facebook"/></a>
 			<a href="https://twitter.com/frskylinecorp" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/twitter.png" title="Twitter" id="twitterLogo"/></a>
-			<a href="https://www.twitch.tv/goldye" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/twitch.png" title="Twitch" id="twitchLogo"/></a>
-			<a href="https://discordapp.com/" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/discord.png" title="Discord" id="discordLogo"/></a>
+			<a href="https://www.twitch.tv/frenchskycorporation" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/twitch.png" title="Twitch" id="twitchLogo"/></a>
+			<a href="https://discord.gg/PSPFrDh" target="_blank"><img src="${pageContext.request.contextPath}/inc/images/discord.png" title="Discord" id="discordLogo"/></a>
 		</div>
 	</div>
 	<nav>

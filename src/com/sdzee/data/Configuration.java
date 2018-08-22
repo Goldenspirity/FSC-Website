@@ -23,7 +23,7 @@ public class Configuration {
     	String role = getFieldValue(request, ROLE_FIELD);
     	
     	if (role != null) {
-    		String[] roleAndName = role.split("_");
+    		String[] roleAndName = role.split("/");
     		role = roleAndName[0];
     		String name = roleAndName[1];
     		User user = userDao.findByName(name);

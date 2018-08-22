@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+html,body {
+	height: 100%;	
+}
+
+#content {
+	align-self: center;
+	background-color: rgba(21,0,0,0.95);
+	padding: 10px;
+	border-radius: 7px;
+}

@@ -125,7 +125,7 @@ public class NewsManagement {
 			String updatedImage = getFieldValue(request, IMAGE_FIELD);
 			String updatedSummary = getFieldValue(request, SUMMARY_FIELD);
 			String updatedContent = getFieldValue(request, CONTENT_FIELD);
-			
+
 			Date date = new Date();
 			String lastEdit = "";
 			String FORMAT = "yy/MM/dd";
